@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -mPxa
+ls -mpxa
