@@ -1,2 +1,2 @@
 #!/bin/bash
-find tmp/h/ -type d -exec chmod ugo+x {} /
+sudo find /tmp/h$ -type d -exec chmod ugo+x {} /
