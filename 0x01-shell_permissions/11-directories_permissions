@@ -1,2 +1,2 @@
 #!/bin/bash
-find -d -exec chmod a+X {}/
+find -d -exec chmod ugo+x {}/;
