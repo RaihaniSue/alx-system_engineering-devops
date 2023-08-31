@@ -1,0 +1,2 @@
+#!/bin/bash
+su guillaume -exec find hello -type f -exec chown hello betty
