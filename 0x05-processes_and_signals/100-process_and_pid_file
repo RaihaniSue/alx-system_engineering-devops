@@ -9,7 +9,7 @@ function heart() {
 trap "echo I hate the kill command;heart" SIGTERM
 trap "echo Y U no love me?!;heart" SIGINT
 
-echo $$ >> /var/run/mysript.pid
+echo $$ >> /var/run/myscript.pid
 while true
 do
 	echo To infinity and beyondd
