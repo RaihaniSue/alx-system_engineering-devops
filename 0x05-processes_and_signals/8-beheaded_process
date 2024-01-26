@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# killing a previous script
+
+kill -9 "$(pgrep -f highlander)"
