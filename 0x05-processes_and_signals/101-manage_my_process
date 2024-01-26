@@ -17,7 +17,7 @@ start() {
 
 stop() {
     if [ -e $PID_FILE ]; then
-        kill -15 $(cat $PID_FILE)
+        kill -15 "$(cat "$PID_FILE")"
         rm $PID_FILE
         echo "$SCRIPT_NAME stopped"
     else
