@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-#displaying processes
+# displaying processes
 
-ps -aux -e | head -50
+ps -a -u -x -e
