@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 #I am stuck with deamons
 
-SCRIPT_NAME="manage_my_process"
+SCRIPT_NAME="my_process"
 PID_FILE="/var/run/$SCRIPT_NAME.pid"
-MANAGE_SCRIPT="./manage_my_process.sh"
+MANAGE_SCRIPT="./manage_my_process"
 
 start() {
     if [ -e $PID_FILE ]; then
