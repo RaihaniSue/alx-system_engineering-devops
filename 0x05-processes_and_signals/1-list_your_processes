@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #displaying processes
 
-ps -aux
+ps -aux | head -50
