@@ -1,54 +1,26 @@
 #!/usr/bin/env bash
 #I am stuck with deamons
 
-SCRIPT_NAME="my_process"
-PID_FILE="/var/run/$SCRIPT_NAME.pid"
-MANAGE_SCRIPT="./manage_my_process"
+if [ "$1" == "start" ]
+then
+	./manage_my_process &
+	echo $$ > /var/run/my_process.pid
+	echo "manage_my_process started"
 
-start() {
-    if [ -e $PID_FILE ]; then
-        echo "$SCRIPT_NAME is already running with PID $(cat $PID_FILE)"
-    else
-        nohup $MANAGE_SCRIPT > /dev/null 2>&1 &
-        echo $! > $PID_FILE
-        echo "$SCRIPT_NAME started"
-    fi
-}
+elif [ "$1" == "stop" ]
+then
+	kill "$(pgrep -f /manage_my_process)"
+	rm /var/run/my_process.pid
+	echo "manage_my_process stopped"
 
-stop() {
-    if [ -e $PID_FILE ]; then
-        kill -15 "$(cat "$PID_FILE")"
-        rm $PID_FILE
-        echo "$SCRIPT_NAME stopped"
-    else
-        echo "$SCRIPT_NAME is not running"
-    fi
-}
+elif [ "$1" == "restart" ]
+then
+	kill "$(pgrep -f /manage_my_process)"
+	rm /var/run/my_process.pid
+	./manage_my_process &
+	echo $$ > /var/run/my_process.pid
+	echo "manage_my_process restarted"
 
-restart() {
-    stop
-    start
-    echo "$SCRIPT_NAME restarted"
-}
-
-usage() {
-    echo "Usage: $SCRIPT_NAME {start|stop|restart}"
-}
-
-case "$1" in
-    start)
-        start
-        ;;
-    stop)
-        stop
-        ;;
-    restart)
-        restart
-        ;;
-    *)
-        usage
-        exit 1
-        ;;
-esac
-
-exit 0
+else
+	echo "Usage: manage_my_process {start|stop|restart}"
+fi
