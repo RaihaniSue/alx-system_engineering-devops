@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # displaying processes
 
-ps -a -u -x -e
+ps -a -u -x -f
