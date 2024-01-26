@@ -2,4 +2,4 @@
 #displaying own bash PID
 # shellcheck disable=SC2009
 
-./1-list_your_processes | pgrep "bash"
+ps -a -u -x -f | grep "bash"
