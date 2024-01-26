@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # are u serious we doing this
 
-function love() {
+function heart() {
 	rm /var/run/myscript.pid
 	exit
 }
 
-trap "echo I hate to kill command;love" SIGTERM
-trap "echo Y U no love me?!;love" SIGINT
+trap "echo I hate the kill command;heart" SIGTERM
+trap "echo Y U no love me?!;heart" SIGINT
 
 echo $$ >> /var/run/mysript.pid
 while true
