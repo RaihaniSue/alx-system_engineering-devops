@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# do not stop me until you kill me
+
+kill "$(ps -x | pgrep -f beyond)"
