@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# ping five time to an IP ADDR
+if [ $# -eq 0 ]
+then
+	echo "Usage: $0 {IP}"
+	exit 1
+fi
+IP=$1
+ping -c 5 $IP
+ecit $?
